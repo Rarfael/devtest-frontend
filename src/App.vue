@@ -16,7 +16,5 @@ export default {
 </script>
 
 <style>
-  body {
-    background: #f2f2f2;
-  }
+@import url("assets/style/bootstrap.min.css")
 </style>

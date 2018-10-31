@@ -1,9 +1,8 @@
-import Http from './http';
+import Http from './Http.js';
 
-export const create = ({ product_name, product_type, product_description }) => Http.post('/products', { firstName, lastName });
+export const create = ({ product_name, product_type, product_description }) => Http.post('/products', { product_name, product_type, product_description });
 
 export const getAllProducts = (page = 0, extraParams = {}) => {
   const params = { page, ...extraParams }; 
-  
-  return Http.get('/user', { params });
+  return Http.get('/products', { params });
 };
