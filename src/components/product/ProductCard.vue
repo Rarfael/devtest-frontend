@@ -11,6 +11,9 @@ export default {
                 this.$emit('removeProduct', productId)
             }
         },
+        updateProduct(productId) {
+            this.$emit('updateProduct', productId)
+        },
 
         confirmRemoveAction() {
             return confirm(`Tem certeza que deseja remover esse produto?`)
@@ -26,7 +29,7 @@ export default {
             <h5 class="card-title">{{product.product_name}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{product.product_type}}</h6>
             <p class="card-text">{{product.product_description}}</p>
-            <a href="#" class="card-link">Editar</a>
+            <a href="#" v-on:click="updateProduct(product.id)" class="card-link">Editar</a>
             <a href="#" v-on:click="deleteProduct(product.id)" class="card-link">Remover</a>
           </div>
         </div>

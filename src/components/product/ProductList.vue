@@ -29,6 +29,10 @@ export default {
             .then(productData => productData.data)
             .then(product => this.products.filter(item => item.id != product.id))
             .then(newProducts => this.products = newProducts)
+            .catch(error => { 
+                alert("Ocorreu erro ao remover! Por favor tente novamente")
+                return error
+            })
         },
     },
     created: function () {

@@ -23,14 +23,16 @@ export default {
             .then(data => { 
                 this.cleanFormFields()
                 this.requestStatus = 'Sended'
+                return data
                 })
             .catch(err => {
                 this.requestStatus = 'Err'
+                return err
             })
         },
 
         cleanFormFields () {
-            Object.keys(this.product).map((item, key) => {
+            Object.keys(this.product).map((item) => {
                 return this.product[item] = ''
             })
             return
