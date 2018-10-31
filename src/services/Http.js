@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const client = axios.create({
-    baseURL: 'http://localhost/devtest-backend/public/api',
+    baseURL: 'http://localhost/devtest-backend/public/api/v1',
     timeout: 1000,
     headers: {'Content-Type': 'application/json'}
 })

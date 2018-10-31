@@ -1,5 +1,6 @@
 <script>
 import { getAllProducts as getProducts } from '../../services/products.js'
+import { deleteProduct as deleteProduct } from '../../services/products.js'
 import ProductCard from './ProductCard.vue'
 export default {
     name: 'ProductList',
@@ -20,7 +21,15 @@ export default {
             .then(products => {
                 this.products = products
             })
-        }
+        },
+
+        removeProduct(productId) {
+            deleteProduct(productId)
+            .then(response => response.data)
+            .then(productData => productData.data)
+            .then(product => this.products.filter(item => item.id != product.id))
+            .then(newProducts => this.products = newProducts)
+        },
     },
     created: function () {
         this.fetchProducts();
@@ -29,11 +38,12 @@ export default {
 </script>
 
 <template>
-<div>
-    <ProductCard 
+<div class="row">
+        <ProductCard 
         v-for="(product) in products"
         v-bind="{product}"
-        v-bind:key="product.id"/> 
+        v-bind:key="product.id" 
+        v-on:removeProduct="removeProduct" />
 </div>
 </template>
 

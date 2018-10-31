@@ -6,3 +6,7 @@ export const getAllProducts = (page = 0, extraParams = {}) => {
   const params = { page, ...extraParams }; 
   return Http.get('/products', { params });
 };
+
+export const deleteProduct = (productId) => {
+  return Http.delete(`/products/${productId}`)
+}
