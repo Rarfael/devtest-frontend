@@ -34,6 +34,9 @@ export default {
                 return error
             })
         },
+        updateProduct (product) {
+            this.$emit('updateProduct', product)
+        }
     },
     created: function () {
         this.fetchProducts();
@@ -47,7 +50,8 @@ export default {
         v-for="(product) in products"
         v-bind="{product}"
         v-bind:key="product.id" 
-        v-on:removeProduct="removeProduct" />
+        v-on:removeProduct="removeProduct" 
+        v-on:updateProduct="updateProduct" />
 </div>
 </template>
 
